@@ -1,8 +1,8 @@
 const express=require('express');
 const app=express();
+const route=require('./routes/battle.routes');
 
-
-
+app.use('/battle',route);
 
 
 
