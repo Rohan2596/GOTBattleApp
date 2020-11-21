@@ -6,6 +6,9 @@ const createError = require('http-errors')
 app.use('/battle', route);
 
 
+//Database Connection
+require('../battle-backend/configuration/database.configuration')
+
 app.use((req, res, next) => {
     next(createError(404));
 })

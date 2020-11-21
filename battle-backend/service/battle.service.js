@@ -1,22 +1,26 @@
+const battleModel = require('../model/battle.model');
+class BattleService {
+    getBattleList = (next) => {
+        try {
+            return battleModel.getBattleList().then((data) => {
+                return data;
+            }).catch((err) => {
+                return err;
+            })
+        } catch (error) {
+            next(error)
+        }
+    };
+    getBattleCount = (next) => {
+        try {
 
-class BattleService{
-    getBattleList=(next)=>{
-        try {
-    
         } catch (error) {
             next(error)
         }
     };
-    getBattleCount=(next)=>{
+    searchQuery = (req, res, next) => {
         try {
-    
-        } catch (error) {
-            next(error)
-        }
-    };
-    searchQuery=(req,res,next)=>{
-        try {
-    
+
         } catch (error) {
             next(error)
         }
@@ -24,3 +28,4 @@ class BattleService{
 
 
 }
+module.exports = new BattleService();

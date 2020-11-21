@@ -1,15 +1,28 @@
+const battleService = require('../service/battle.service');
+
 class BattleController {
 
     getBattleList = (req, res, next) => {
         try {
             const response = {}
-            response.success = true;
-            response.message = "Get All Battle List.";
-            response.data = [];
-            response.error = ""
-            return res.status(200).send(response);
+            battleService.getBattleList().then((data) => {
+                response.success = true;
+                response.message = data.message;
+                response.data = data.data;
+                response.error = ""
+                return res.status(200).send(response);
 
+            }).catch((error) => {
+                response.success = false;
+                response.message = data.message;
+                response.data = data.data;
+                response.error = ""
+                return res.status(400).send(response);
+
+            })
         } catch (error) {
+            console.log(error);
+
             next(error)
         }
     };
