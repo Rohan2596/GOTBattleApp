@@ -1,9 +1,7 @@
 const route = require('express').Router();
+const battleController=require('../controller/battle.controller')
 
-
-route.get("/list",(req,res)=>{
-    console.log(res.send("Getting list(array) of all the places where the battle has taken place.").sendStatus(200));
-})
+route.get("/list",battleController.getBattleList);
 route.get("/count",(req,res)=>{
     console.log(res.send("Getting Count of the total number of battles").sendStatus(200));
 });
