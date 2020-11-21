@@ -26,6 +26,19 @@ class BattleController{
       next(error)
     }
 };
+search=(req,res,next)=>{
+    try {
+        const response={}
+        response.success=true;
+        response.message="Searching battle and amy more";
+        response.data=req.query;
+        response.error=""
+        return res.status(200).send(response);
+        
+    } catch (error) {
+      next(error)
+    }
+};
 
   
 
