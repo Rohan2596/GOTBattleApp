@@ -2,7 +2,7 @@ const battleService = require('../service/battle.service');
 
 class BattleController {
 
-    getBattleList = (req, res, next) => {
+    getBattleList = (req,res, next) => {
         try {
             const response = {}
             battleService.getBattleList().then((data) => {
@@ -26,15 +26,25 @@ class BattleController {
             next(error)
         }
     };
-    getBattleCount = (req, res, next) => {
+    getBattleCount = (req,res, next) => {
         try {
             const response = {}
-            response.success = true;
-            response.message = "Get Total Battle Count.";
-            response.data = [];
-            response.error = ""
-            return res.status(200).send(response);
+            battleService.getBattleCount().then((data) => {
+                response.success = true;
+                response.message = data.message;
+                response.data = data.data;
+                response.error = ""
+                return res.status(200).send(response);
 
+            }).catch((error) => {
+                console.log(error);
+                response.success = false;
+                response.message = data.message;
+                response.data = data.data;
+                response.error = error
+                return res.status(400).send(response);
+
+            })
         } catch (error) {
             next(error)
         }

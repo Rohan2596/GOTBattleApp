@@ -13,7 +13,11 @@ class BattleService {
     };
     getBattleCount = (next) => {
         try {
-
+            return battleModel.getTotalBattleCount().then((data) => {
+                return data;
+            }).catch((err) => {
+                return err;
+            })
         } catch (error) {
             next(error)
         }

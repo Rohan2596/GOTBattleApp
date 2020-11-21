@@ -126,11 +126,31 @@ class BattleModel {
                             for (i = 0; i < result.length; i++) {
                                 data[i]= result[i].location;
                               }
-                              console.log(data.length ,data[0]);
                             resolve({ message:"Battles Found are :- ",data: data })
 
                         } else {
                             reject({message:"No Battle Found!"  ,data: []})
+                        }
+
+                    }).catch(err => {
+                        reject(err)
+                    })
+            })
+        } catch (error) {
+            next(error);
+        }
+    };
+    getTotalBattleCount=(next)=>{
+        try {
+            return new Promise((resolve, reject) => {
+                battleModel.find()
+                    .then(result => {
+                        if (result) {
+                            
+                            resolve({ message:"Battles Count are :- ",data: result.length })
+
+                        } else {
+                            reject({message:"No Battles Found!"  ,data: 0})
                         }
 
                     }).catch(err => {
