@@ -74,6 +74,28 @@ class BattleController {
         }
     };
 
+    searchQuery = (req, res, next) => {
+        try {
+
+            const response = {}
+            let search = req.query;
+            let { location, name,king} = req.query;
+            let query = {};
+            if (location != null) query.location = location;
+            if (king != null){
+                query.attacker_king=king,query.defender_king = king   
+            }
+
+            console.log(query);
+            response.success = true;
+            response.message = "Searching battle and amy more";
+            response.data = search;
+            response.error = ""
+            return res.status(200).send(response);
+        } catch (error) {
+            next(error)
+        }
+    }
 
 
 };
