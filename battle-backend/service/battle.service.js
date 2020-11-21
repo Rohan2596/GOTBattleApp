@@ -22,9 +22,13 @@ class BattleService {
             next(error)
         }
     };
-    searchQuery = (req, res, next) => {
+    searchAll = (req, res, next) => {
         try {
-
+            return battleModel.search(req).then((data) => {
+                return data;
+            }).catch((err) => {
+                return err;
+            })
         } catch (error) {
             next(error)
         }
