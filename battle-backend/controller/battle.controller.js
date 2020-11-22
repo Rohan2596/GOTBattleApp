@@ -79,19 +79,33 @@ class BattleController {
 
             const response = {}
             let search = req.query;
-            let { location, name,king} = req.query;
+            let { location, name, king,type } = req.query;
             let query = {};
             if (location != null) query.location = location;
-            if (king != null){
-                query.attacker_king=king,query.defender_king = king   
+            if (king != null) {
+                query.attacker_king = king, query.defender_king = king
             }
+            if (type != null) {
+                query.type = type;
+            }
+            if(name!=null){
+                query.name = name;
+            }
+            battleService.searchQuery(query).then((data) => {
+                response.success = true;
+                response.message = "Searching battle and any more";
+                response.data = data;
+                response.error = ""
+                return res.status(200).send(response);
 
-            console.log(query);
-            response.success = true;
-            response.message = "Searching battle and amy more";
-            response.data = search;
-            response.error = ""
-            return res.status(200).send(response);
+            }).catch((error) => {
+                response.success = false;
+                response.message = data.message;
+                response.data = data.data;
+                response.error = error
+                return res.status(400).send(response);
+
+            })
         } catch (error) {
             next(error)
         }

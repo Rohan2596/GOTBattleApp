@@ -172,30 +172,30 @@ class BattleModel {
                     attacker_king: /req/,
                     defender_king: /req/,
                     attacker_1: /req/,
-                    attacker_2:/req/,
-                    attacker_3:/req/,
-                    attacker_4:/req/,
-                    defender_1:/req/,
-                    defender_2:/req/,
-                    defender_3:/req/,
-                    defender_4:/req/,
-                    attacker_outcome:/req/,
-                    battle_type:/req/,
-                    major_death:/req/,
-                    major_capture:/req/,
+                    attacker_2: /req/,
+                    attacker_3: /req/,
+                    attacker_4: /req/,
+                    defender_1: /req/,
+                    defender_2: /req/,
+                    defender_3: /req/,
+                    defender_4: /req/,
+                    attacker_outcome: /req/,
+                    battle_type: /req/,
+                    major_death: /req/,
+                    major_capture: /req/,
                     attacker_size: /req/,
                     defender_size: /req/,
-                    attacker_commander:/req/,
-                    defender_commander:/req/,
-                    summer:/req/,
-                    location:/req/,
+                    attacker_commander: /req/,
+                    defender_commander: /req/,
+                    summer: /req/,
+                    location: /req/,
                     region: /req/,
                     note: /req/
                 }
                 )
                     .then(result => {
                         if (result) {
-                               console.log(result.length);
+                            console.log(result.length);
                             resolve({ message: "Battles Found are :- ", data: result })
 
                         } else {
@@ -209,7 +209,36 @@ class BattleModel {
         } catch (error) {
             next(error);
         }
-    }
+    };
+    getSearchQuery = (req, next) => {
+        try {
+            console.log(req);
+            return new Promise((resolve, reject) => {
+                battleModel.find({
+                    $or:
+                        [
+                            { location: req.location },
+                            { battle_type: req.type },
+                            { attacker_king: req.attacker_king },
+                            {  defender_king:req.defender_king}
+                        ]
+                })
+                    .then(result => {
+                        if (result) {
+
+                            resolve({ message: "Search Output:- ", data: result })
+
+                        } else {
+                            reject({ message: "No Battles Found!", data: 0 })
+                        }
+                    }).catch(err => {
+                        reject(err)
+                    })
+            })
+        } catch (error) {
+            next(error);
+        }
+    };
 
 }
 module.exports = new BattleModel();

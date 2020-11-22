@@ -32,6 +32,17 @@ class BattleService {
         } catch (error) {
             next(error)
         }
+    };
+    searchQuery = (req, res, next) => {
+        try {
+            return battleModel.getSearchQuery(req).then((data) => {
+                return data;
+            }).catch((err) => {
+                return err;
+            })
+        } catch (error) {
+            next(error)
+        }
     }
 
 
