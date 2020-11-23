@@ -10,10 +10,12 @@ export class Search extends Component{
                 </h1>
                 <div className="search_div">
                       
-                      <input className="search_input" placeholder="Search the Battle"/>
+                      <input id="Search" className="search_input" placeholder="Search the Battle"/>
+                      <button id="searchButton" className="search_button">Search</button>
 
                 </div>
             </div>
         )
     }
 }
+ 
