@@ -2,8 +2,11 @@ const express = require('express');
 const app = express();
 const route = require('./routes/battle.routes');
 const createError = require('http-errors')
-
+const cors = require('cors');
+app.use(cors())
 app.use('/battle', route);
+
+
 
 
 //Database Connection

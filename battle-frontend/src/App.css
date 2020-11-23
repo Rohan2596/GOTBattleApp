@@ -1,5 +1,16 @@
 .App {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+flex-direction: column;
+
+}
+.search_main{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+flex-direction: column;
+
 }
 .search-div{
   display: flex;
@@ -45,7 +56,7 @@ flex-direction: column;
 -webkit-box-flex: 1;
   flex: 1;
   position: relative;
-  width: 450px;
+  width: 500px;
 }
 .battleCard{
   display: flex;
@@ -66,12 +77,36 @@ flex-direction: column;
   flex-direction: row;
 }
 .attack_warriors{
-  width: 200px;
+  width: 250px;
   display: flex;
   flex-direction: column;
 }
 .defender_warriors{
-  width: 200px;
+  width: 250px;
   display: flex;
   flex-direction: column;
+}
+.card{
+  color: black;
+
+}
+.name{
+  font-weight: bold;
+  text-decoration: underline ;
+}
+.year{
+  font-weight: bold;
+  color: #35558a;
+}
+.location{
+  font-weight: bold;
+  color: blue;
+}
+.attacker{
+  color: orange;
+  font-weight: bolder;
+}
+.defender{
+  color: blue;
+  font-weight: bolder;
 }
