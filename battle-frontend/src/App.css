@@ -39,3 +39,39 @@ outline: none;
  color: black;
   background-color: white;
 }
+.displayCards{
+display: flex;
+flex-direction: column;
+-webkit-box-flex: 1;
+  flex: 1;
+  position: relative;
+  width: 450px;
+}
+.battleCard{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  border: 1px solid black;
+  padding: 1%;
+}
+.battle_main{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+flex-direction: column;
+}
+.warriors{
+  display: flex;
+  flex-direction: row;
+}
+.attack_warriors{
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+}
+.defender_warriors{
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+}
