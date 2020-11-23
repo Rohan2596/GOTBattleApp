@@ -165,41 +165,35 @@ class BattleModel {
         try {
             return new Promise((resolve, reject) => {
                 battleModel.find(
-                    {}, {
-                    name: /req/,
-                    year: /req/,
-                    battle_number: /req/,
-                    attacker_king: /req/,
-                    defender_king: /req/,
-                    attacker_1: /req/,
-                    attacker_2: /req/,
-                    attacker_3: /req/,
-                    attacker_4: /req/,
-                    defender_1: /req/,
-                    defender_2: /req/,
-                    defender_3: /req/,
-                    defender_4: /req/,
-                    attacker_outcome: /req/,
-                    battle_type: /req/,
-                    major_death: /req/,
-                    major_capture: /req/,
-                    attacker_size: /req/,
-                    defender_size: /req/,
-                    attacker_commander: /req/,
-                    defender_commander: /req/,
-                    summer: /req/,
-                    location: /req/,
-                    region: /req/,
-                    note: /req/
-                }
-                )
+                    {
+                        $or:
+                            [
+                                { name:  { $regex : req} },
+                                { battle_type:  { $regex :req}},
+                                { attacker_king:  { $regex : req } },
+                                { defender_king:  { $regex : req }},
+                                { attacker_1:  { $regex : req } },
+                                { attacker_2: { $regex : req }},
+                                { attacker_3:  { $regex : req }},
+                                { attacker_outcome: { $regex :req} },
+                                { defender_1:  { $regex : req }},
+                                { defender_2:  { $regex : req } },
+                                { defender_3:  { $regex : req } },
+                                { battle_type: { $regex : req }},
+                                {region: { $regex : req }},
+                                { attacker_commander:  { $regex : req } },
+                                { location:  { $regex : req } },
+                                { note:  { $regex : req } }
+                                
+                            ]
+                    })
                     .then(result => {
                         if (result) {
                             console.log(result.length);
                             resolve({ message: "Battles Found are :- ", data: result })
 
                         } else {
-                            reject({ message: "No Battles Found!", data: 0 })
+                            reject({ message: "No Battles Found!", data: [] })
                         }
 
                     }).catch(err => {
@@ -220,7 +214,7 @@ class BattleModel {
                             { location: req.location },
                             { battle_type: req.type },
                             { attacker_king: req.attacker_king },
-                            {  defender_king:req.defender_king}
+                            { defender_king: req.defender_king }
                         ]
                 })
                     .then(result => {

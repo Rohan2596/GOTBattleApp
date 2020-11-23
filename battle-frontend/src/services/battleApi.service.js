@@ -4,10 +4,10 @@ const {apiUrl,getSearch}=require('../services/constant');
 
 class BattleService {
 
-    getBattles = () => {
+    getBattles = (search) => {
         return axios({
             method: "GET",
-            url: `${apiUrl}${getSearch}` + "Rob" ,
+            url: `${apiUrl}${getSearch}` + search ,
         });
     };
     

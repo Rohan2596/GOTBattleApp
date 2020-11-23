@@ -1,11 +1,13 @@
 import React,{ Component } from 'react';
+import { BattleCard } from '../battleCard/BattleCard';
 import '/home/admin1/Desktop/BackEndProjects/GOTBattle-application/battle-frontend/src/App.css';
 export class Search extends Component{
 
     constructor(props){
         super(props)
         this.state={
-            search:""
+            search:"",
+            message:''
         }
     }
    onChangeSearch=(event)=>{
@@ -16,7 +18,12 @@ export class Search extends Component{
    onSearch=()=>{
        console.log(this.state.search);
        document.getElementById('Search').value = ''
-       
+       this.setState({message:this.state.search})
+       this.setState({
+        search: '',
+
+    })
+
    }
     render(){
         return(
@@ -30,6 +37,7 @@ export class Search extends Component{
                       <button id="searchButton" className="search_button" onClick={this.onSearch}>Search</button>
 
                 </div>
+                <BattleCard message={this.state.message}/>
             </div>
         )
     }

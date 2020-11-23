@@ -1,15 +1,18 @@
-import logo from './logo.svg';
+import React from "react";
 import './App.css';
 import { Search } from './search/search.component';
-import { BattleCard } from './battleCard/BattleCard';
+class App extends React.Component {
 
-function App() {
-  return (
-    <div className="App">
-      <Search/>
-      <BattleCard/>
-    </div>
-  );
+  render() {
+
+
+
+    return (
+      <div className="App">
+        <Search />
+
+      </div>
+    );
+  }
 }
-
 export default App;

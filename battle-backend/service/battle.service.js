@@ -25,6 +25,7 @@ class BattleService {
     searchAll = (req, res, next) => {
         try {
             return battleModel.search(req).then((data) => {
+                console.log(req);
                 return data;
             }).catch((err) => {
                 return err;

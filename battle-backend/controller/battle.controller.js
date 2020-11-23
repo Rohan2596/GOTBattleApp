@@ -56,7 +56,7 @@ class BattleController {
             let search = req.params.search;
             battleService.searchAll(search).then((data) => {
                 response.success = true;
-                response.message = "Searching battle and amy more";
+                response.message = data.message;
                 response.data = data;
                 response.error = ""
                 return res.status(200).send(response);

@@ -6,22 +6,26 @@ export class BattleCard extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            cards: []
+            cards: [],
+            search: ''
+
         }
 
     }
-    componentDidMount() {
-        BattleSerVice.getBattles().then((data) => {
-            console.log(data.data.data.data);
-            this.setState({ cards: data.data.data.data })
 
-        }).catch((err) => {
-            console.log(err);
-        })
-    }
+    componentDidUpdate(prevProps) {
+        if (this.props.message !== prevProps.message) {
+            BattleSerVice.getBattles(this.props.message).then((data) => {
+                console.log(data.data.data.data);
+                this.setState({ cards: data.data.data.data })
 
-
+            }).catch((err) => {
+                console.log(err);
+            })
+        }
+      }
     render() {
+
         var displayAllCards = this.state.cards.map((item, i) => {
             return (
                 <div className="battleCard" key={i}>
@@ -69,6 +73,7 @@ export class BattleCard extends Component {
                     Battles Of GOT
                 </h1>
                 <div className="displayCards">
+
                     {displayAllCards}
                 </div>
             </div>
