@@ -56,7 +56,7 @@ flex-direction: column;
 -webkit-box-flex: 1;
   flex: 1;
   position: relative;
-  width: 500px;
+  width: 550px;
 }
 .battleCard{
   display: flex;
@@ -65,6 +65,8 @@ flex-direction: column;
   justify-content: flex-start;
   border: 1px solid black;
   padding: 1%;
+  margin-bottom: 1%;
+
 }
 .battle_main{
   display: flex;
@@ -77,12 +79,12 @@ flex-direction: column;
   flex-direction: row;
 }
 .attack_warriors{
-  width: 250px;
+  width: 275px;
   display: flex;
   flex-direction: column;
 }
 .defender_warriors{
-  width: 250px;
+  width: 275px;
   display: flex;
   flex-direction: column;
 }
@@ -109,4 +111,79 @@ flex-direction: column;
 .defender{
   color: blue;
   font-weight: bolder;
+}
+@media only screen and (max-width: 426px) {
+  .search_main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  flex-direction: column;
+  
+  }
+  .search-div{
+    display: flex;
+    -webkit-box-flex: 1;
+    flex: 1;
+    position: relative
+  }
+  .search_input{
+    width: 200px;
+    padding: 8px;
+    font-size: 14px;
+    border: 2px solid #e5e5ef;
+    background-color: #e5e5ef;
+    font-weight: bold;
+    border-radius: 4px;
+  }
+  .search_input:focus{
+    
+  outline: none;  
+  }
+  #Search::-webkit-search-cancel-button{
+    position:relative;
+    right:20px;    
+  }
+  .search_button{
+    padding: 8px;
+      margin-left: 2px;
+      background-color: black;
+      color: white;
+      border: 0.5px solid black;
+      border-radius: 4px;
+      font-size: 14px;
+  }
+  .search_button:hover{
+    cursor: pointer;
+    
+   color: black;
+    background-color: white;
+  }
+  .warriors{
+    display: flex;
+    flex-direction: column;
+  }
+  .displayCards{
+  display: flex;
+  flex-direction: column;
+  -webkit-box-flex: 1;
+    flex: 1;
+    position: relative;
+    width:300px;
+  }.name{
+    font-weight: bold;
+    text-decoration: underline ;
+    font-size: medium;
+  }
+ 
+  .attack_warriors{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+  }
+  .defender_warriors{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+  }
+  
 }

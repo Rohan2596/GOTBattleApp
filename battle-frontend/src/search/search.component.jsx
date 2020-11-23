@@ -18,11 +18,18 @@ export class Search extends Component{
    onSearch=()=>{
        console.log(this.state.search);
        document.getElementById('Search').value = ''
-       this.setState({message:this.state.search})
-       this.setState({
-        search: '',
-
-    })
+       if(this.state.search===''){
+        
+        console.log("No Value");
+       }
+       if(this.state.search!==''){
+        this.setState({message:this.state.search})
+        this.setState({
+         search: '',
+ 
+     })
+       }
+       
 
    }
     render(){
