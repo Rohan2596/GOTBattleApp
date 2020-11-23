@@ -168,22 +168,22 @@ class BattleModel {
                     {
                         $or:
                             [
-                                { name:  { $regex : req} },
-                                { battle_type:  { $regex :req}},
-                                { attacker_king:  { $regex : req } },
-                                { defender_king:  { $regex : req }},
-                                { attacker_1:  { $regex : req } },
-                                { attacker_2: { $regex : req }},
-                                { attacker_3:  { $regex : req }},
-                                { attacker_outcome: { $regex :req} },
-                                { defender_1:  { $regex : req }},
-                                { defender_2:  { $regex : req } },
-                                { defender_3:  { $regex : req } },
-                                { battle_type: { $regex : req }},
-                                {region: { $regex : req }},
-                                { attacker_commander:  { $regex : req } },
-                                { location:  { $regex : req } },
-                                { note:  { $regex : req } }
+                                { name:  { $regex : req,$options: 'i'} },
+                                { battle_type:  { $regex :req,$options: 'i'}},
+                                { attacker_king:  { $regex : req,$options: 'i' } },
+                                { defender_king:  { $regex : req,$options: 'i' }},
+                                { attacker_1:  { $regex : req,$options: 'i' } },
+                                { attacker_2: { $regex : req,$options: 'i' }},
+                                { attacker_3:  { $regex : req,$options: 'i' }},
+                                { attacker_outcome: { $regex :req,$options: 'i'} },
+                                { defender_1:  { $regex : req,$options: 'i' }},
+                                { defender_2:  { $regex : req,$options: 'i' } },
+                                { defender_3:  { $regex : req,$options: 'i' } },
+                                { battle_type: { $regex : req,$options: 'i' }},
+                                {region: { $regex : req,$options: 'i' }},
+                                { attacker_commander:  { $regex : req,$options: 'i' } },
+                                { location:  { $regex : req,$options: 'i' } },
+                                { note:  { $regex : req,$options: 'i' } }
                                 
                             ]
                     })
