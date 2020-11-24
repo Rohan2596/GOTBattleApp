@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import BattleSerVice from "../services/battleApi.service";
-import '/home/admin1/Desktop/BackEndProjects/GOTBattle-application/battle-frontend/src/App.css';
+import BattleService from '../services/battleApi.service';
+import '../../src/App.css';
 export class BattleCard extends Component {
 
     constructor(props) {
@@ -15,7 +15,7 @@ export class BattleCard extends Component {
 
     componentDidUpdate(prevProps) {
         if (this.props.message !== prevProps.message) {
-            BattleSerVice.getBattles(this.props.message).then((data) => {
+          new  BattleService().getBattles(this.props.message).then((data) => {
                 console.log(data.data.data.data);
                 this.setState({ cards: data.data.data.data })
 
@@ -23,7 +23,7 @@ export class BattleCard extends Component {
                 console.log(err);
             })
         }
-      }
+    }
     render() {
 
         var displayAllCards = this.state.cards.map((item, i) => {
