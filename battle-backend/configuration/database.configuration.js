@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
-mongoose.connect('mongodb://localhost:27017/got',
+mongoose.connect('mongodb+srv://dbUser:dbUser@cluster0.oxprw.mongodb.net/got?retryWrites=true&w=majority',
     {
         useUnifiedTopology: true,
         useNewUrlParser: true,
