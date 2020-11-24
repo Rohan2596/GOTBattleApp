@@ -26,7 +26,6 @@ export class Search extends Component{
         this.setState({message:this.state.search})
         this.setState({
          search: '',
- 
      })
        }
        
