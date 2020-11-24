@@ -113,6 +113,35 @@ const battleSchema = new mongoose.Schema({
 
 })
 const battleModel = mongoose.model("battle", battleSchema, "battle");
+battleSchema.index({
+    'name': 'text',
+
+    'attacker_king': 'text',
+    'defender_king': 'text',
+    'attacker_1': 'text',
+    'attacker_2': 'text',
+
+    'attacker_3': 'text',
+
+    'attacker_4': 'text',
+
+    'defender_1': 'text',
+
+    'defender_2': 'text',
+
+    'defender_3': 'text',
+
+    'defender_4': 'text',
+
+    'attacker_outcome': 'text',
+    'battle_type': 'text',
+    'attacker_commander': 'text',
+    'defender_commander': 'text',
+    'summer': 'text',
+    'location': 'text',
+    'region': 'text',
+    'note': 'text',
+})
 class BattleModel {
 
     getBattleList = (next) => {
@@ -168,25 +197,26 @@ class BattleModel {
                     {
                         $or:
                             [
-                                { name:  { $regex : req,$options: 'i'} },
-                                { battle_type:  { $regex :req,$options: 'i'}},
-                                { attacker_king:  { $regex : req,$options: 'i' } },
-                                { defender_king:  { $regex : req,$options: 'i' }},
-                                { attacker_1:  { $regex : req,$options: 'i' } },
-                                { attacker_2: { $regex : req,$options: 'i' }},
-                                { attacker_3:  { $regex : req,$options: 'i' }},
-                                { attacker_outcome: { $regex :req,$options: 'i'} },
-                                { defender_1:  { $regex : req,$options: 'i' }},
-                                { defender_2:  { $regex : req,$options: 'i' } },
-                                { defender_3:  { $regex : req,$options: 'i' } },
-                                { battle_type: { $regex : req,$options: 'i' }},
-                                {region: { $regex : req,$options: 'i' }},
-                                { attacker_commander:  { $regex : req,$options: 'i' } },
-                                { location:  { $regex : req,$options: 'i' } },
-                                { note:  { $regex : req,$options: 'i' } }
-                                
+                                { name: { $regex: req, $options: 'i' } },
+                                { battle_type: { $regex: req, $options: 'i' } },
+                                { attacker_king: { $regex: req, $options: 'i' } },
+                                { defender_king: { $regex: req, $options: 'i' } },
+                                { attacker_1: { $regex: req, $options: 'i' } },
+                                { attacker_2: { $regex: req, $options: 'i' } },
+                                { attacker_3: { $regex: req, $options: 'i' } },
+                                { attacker_outcome: { $regex: req, $options: 'i' } },
+                                { defender_1: { $regex: req, $options: 'i' } },
+                                { defender_2: { $regex: req, $options: 'i' } },
+                                { defender_3: { $regex: req, $options: 'i' } },
+                                { battle_type: { $regex: req, $options: 'i' } },
+                                { region: { $regex: req, $options: 'i' } },
+                                { attacker_commander: { $regex: req, $options: 'i' } },
+                                { location: { $regex: req, $options: 'i' } },
+                                { note: { $regex: req, $options: 'i' } }
+
                             ]
-                    })
+                      }
+                )
                     .then(result => {
                         if (result) {
                             console.log(result.length);
