@@ -1,4 +1,4 @@
 module.exports = {
-    apiUrl: "http://localhost:3001/battle",
+    apiUrl: "https://battle-backend.herokuapp.com/battle",
     getSearch:"/search/"
 }

@@ -39,7 +39,7 @@ export class Search extends Component {
                 </h1>
                 <div className="search_div">
 
-                    <input id="Search" className="search_input" placeholder="Search the Battle" value={this.state.search} onChange={(event) => this.onChangeSearch(event)} />
+                    <input id="Search"  autoComplete="on" className="search_input" placeholder="Search the Battle" value={this.state.search} onChange={(event) => this.onChangeSearch(event)} />
                     <button id="searchButton" className="search_button" onClick={this.onSearch}>Search</button>
 
                 </div>
