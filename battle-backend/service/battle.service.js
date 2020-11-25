@@ -1,5 +1,10 @@
 const battleModel = require('../model/battle.model');
 class BattleService {
+
+/**
+ * @Purpose : Service Logic for Getting battle list.
+ * @author  : ROHAN KADAM    
+ */
     getBattleList = (next) => {
         try {
             return battleModel.getBattleList().then((data) => {
@@ -11,6 +16,10 @@ class BattleService {
             next(error)
         }
     };
+/**
+ * @Purpose : Service Logic for Getting battle Count.
+ * @author  : ROHAN KADAM    
+ */
     getBattleCount = (next) => {
         try {
             return battleModel.getTotalBattleCount().then((data) => {
@@ -22,6 +31,10 @@ class BattleService {
             next(error)
         }
     };
+/**
+ * @Purpose : Service Logic for Getting battle on search input.
+ * @author  : ROHAN KADAM    
+ */
     searchAll = (req, res, next) => {
         try {
             return battleModel.search(req).then((data) => {
@@ -34,6 +47,10 @@ class BattleService {
             next(error)
         }
     };
+/**
+ * @Purpose : Service Logic for Getting battle search Query.
+ * @author  : ROHAN KADAM    
+ */
     searchQuery = (req, res, next) => {
         try {
             return battleModel.getSearchQuery(req).then((data) => {

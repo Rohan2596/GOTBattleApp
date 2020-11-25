@@ -1,7 +1,16 @@
 const battleService = require('../service/battle.service');
 
+
+/**
+ * @Purpose : Controller End points for GOT battle.
+ * @author  : ROHAN KADAM    
+ */
 class BattleController {
 
+    /**
+     * @Purpose : Endpoints for getting all battle list.
+     * @author  : ROHAN KADAM    
+     */
     getBattleList = (req, res, next) => {
         try {
             const response = {}
@@ -26,6 +35,10 @@ class BattleController {
             next(error)
         }
     };
+/**
+ * @Purpose : Endpoints for getting total  battle count.
+ * @author  : ROHAN KADAM    
+ */
     getBattleCount = (req, res, next) => {
         try {
             const response = {}
@@ -49,6 +62,10 @@ class BattleController {
             next(error)
         }
     };
+/**
+ * @Purpose : Endpoints for getting all battles on search input.
+ * @author  : ROHAN KADAM    
+ */
     searchingAll = (req, res, next) => {
         try {
 
@@ -73,13 +90,17 @@ class BattleController {
             next(error)
         }
     };
-
+/**
+ * @Purpose : Endpoints for getting battle on query Parameter.
+ * @author  : ROHAN KADAM    
+ */
+    
     searchQuery = (req, res, next) => {
         try {
 
             const response = {}
             let search = req.query;
-            let { location, name, king,type } = req.query;
+            let { location, name, king, type } = req.query;
             let query = {};
             if (location != null) query.location = location;
             if (king != null) {
@@ -88,7 +109,7 @@ class BattleController {
             if (type != null) {
                 query.type = type;
             }
-            if(name!=null){
+            if (name != null) {
                 query.name = name;
             }
             battleService.searchQuery(query).then((data) => {
